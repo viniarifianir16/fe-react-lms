@@ -16,7 +16,7 @@ const DefaultLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
 
         {/* <!-- ===== Content Area Start ===== --> */}
         <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
-          <div className="flex w-full">
+          <div className="flex">
             <div className="flex flex-col w-full mx-auto">
               {/* <!-- ===== Header Start ===== --> */}
               <Header
@@ -33,7 +33,7 @@ const DefaultLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
               </main>
               {/* <!-- ===== Main Content End ===== --> */}
             </div>
-            <div className="flex flex-col w-100 mx-auto max-w-screen-2xl">
+            <div className="flex flex-col mx-auto h-full max-w-screen-2xl lg:w-1/3">
               <ProfileInfo />
             </div>
           </div>

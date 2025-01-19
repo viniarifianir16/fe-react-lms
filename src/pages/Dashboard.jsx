@@ -16,11 +16,8 @@ function Dashboard() {
   });
   return (
     <>
-      {/* <h1>Welcome, {user?.name}</h1> */}
-      {/* <button onClick={handleLogout}>Logout</button> */}
-
-      <section className="bg-gradient-to-b from-purple-300 to-purple-600 rounded-lg shadow-lg p-6 mb-5">
-        <div className="flex justify-between items-center space-x-10 lg:space-x-20">
+      <section className="bg-gradient-to-b from-purple-400 to-purple-800 rounded-lg shadow-lg p-6 mb-5">
+        <div className="flex justify-between items-center space-x-10">
           <div>
             <p className="text-base text-yellow-500 font-bold mb-4">
               PEMROGRAMAN

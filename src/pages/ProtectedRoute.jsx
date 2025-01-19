@@ -1,5 +1,6 @@
+// @ts-nocheck
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useAuthStore } from '../stores/auth';
+import { useAuthStore } from '../stores/Auth';
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 

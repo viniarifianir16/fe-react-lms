@@ -6,7 +6,7 @@ import { useAuthStore } from '../../stores/Auth';
 import { useNavigate } from 'react-router-dom';
 
 import { RxDashboard } from 'react-icons/rx';
-import { IoCalendar } from 'react-icons/io5';
+import { MdOutlineAssignment } from 'react-icons/md';
 import { LuUsers, LuUser } from 'react-icons/lu';
 import { PiChatDots } from 'react-icons/pi';
 import { FaArrowLeft } from 'react-icons/fa';
@@ -26,7 +26,6 @@ const Separator = () => {
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   const location = useLocation();
   const { pathname } = location;
-
   const trigger = useRef<any>(null);
   const sidebar = useRef<any>(null);
 
@@ -82,7 +81,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   return (
     <aside
       ref={sidebar}
-      className={`absolute left-0 top-0 z-9999 flex h-screen w-50 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0 ${
+      className={`absolute left-0 top-0 z-9999 flex h-screen w-60 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}
     >
@@ -129,13 +128,13 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item Modul --> */}
               <li>
                 <NavLink
-                  to="#"
+                  to="/modul"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('#') &&
+                    pathname.includes('modul') &&
                     'bg-white text-bodydark2 dark:bg-meta-4'
                   }`}
                 >
-                  <IoCalendar />
+                  <MdOutlineAssignment />
                   Modul
                 </NavLink>
               </li>
@@ -147,7 +146,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   to="/profile"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes('profile') &&
-                    'bg-white text-bodydark2 dark:bg-meta-4'
+                    'bg-white text-bodydark dark:bg-meta-4'
                   }`}
                 >
                   <LuUsers />
