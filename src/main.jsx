@@ -6,10 +6,15 @@ import './css/style.css';
 import './css/satoshi.css';
 import 'flatpickr/dist/flatpickr.min.css';
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <Router>
-      <App />
-    </Router>
-  </StrictMode>
-);
+const rootElement = document.getElementById('root');
+if (rootElement) {
+  createRoot(rootElement).render(
+    <StrictMode>
+      <Router>
+        <App />
+      </Router>
+    </StrictMode>
+  );
+} else {
+  console.error('Failed to find the root element');
+}

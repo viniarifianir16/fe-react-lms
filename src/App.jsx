@@ -10,7 +10,7 @@ import DefaultLayout from './layout/DefaultLayout';
 import Loader from './common/Loader';
 import PageTitle from './components/PageTitle';
 import Calendar from './pages/Calendar';
-import Modul from './pages/modul/Modul';
+import Modul from './pages/Modul/Modul';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -73,7 +73,7 @@ function App() {
           element={
             <>
               <PageTitle title="Modul" />
-              <Modul />
+              <Modul moduls={[]} />
             </>
           }
         />

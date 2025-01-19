@@ -1,4 +1,4 @@
-import CardDataStats from '../components/CardDataStats';
+import CardDataStats from '../components/Card/CardDataStats';
 import TableThree from '../components/Tables/TableThree';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';

@@ -5,6 +5,7 @@ const useAuthStore = create(
   persist(
     (set) => ({
       user: null,
+      // @ts-ignore
       login: (params) => {
         set({ user: params });
       },
@@ -14,6 +15,7 @@ const useAuthStore = create(
     }),
     {
       name: 'auth-storage',
+      // @ts-ignore
       getStorage: () => localStorage,
     }
   )
