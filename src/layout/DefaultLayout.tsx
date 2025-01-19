@@ -1,6 +1,7 @@
 import React, { useState, ReactNode } from 'react';
 import Header from '../components/Header/index';
 import Sidebar from '../components/Sidebar/index';
+import ProfileInfo from '../components/ProfileInfo';
 
 const DefaultLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -15,18 +16,29 @@ const DefaultLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
 
         {/* <!-- ===== Content Area Start ===== --> */}
         <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
-          {/* <!-- ===== Header Start ===== --> */}
-          <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-          {/* <!-- ===== Header End ===== --> */}
+          <div className="flex w-full">
+            <div className="flex flex-col w-full mx-auto">
+              {/* <!-- ===== Header Start ===== --> */}
+              <Header
+                sidebarOpen={sidebarOpen}
+                setSidebarOpen={setSidebarOpen}
+              />
+              {/* <!-- ===== Header End ===== --> */}
 
-          {/* <!-- ===== Main Content Start ===== --> */}
-          <main>
-            <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
-              {children}
+              {/* <!-- ===== Main Content Start ===== --> */}
+              <main>
+                <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+                  {children}
+                </div>
+              </main>
+              {/* <!-- ===== Main Content End ===== --> */}
             </div>
-          </main>
-          {/* <!-- ===== Main Content End ===== --> */}
+            <div className="flex flex-col w-100 mx-auto max-w-screen-2xl">
+              <ProfileInfo />
+            </div>
+          </div>
         </div>
+
         {/* <!-- ===== Content Area End ===== --> */}
       </div>
       {/* <!-- ===== Page Wrapper End ===== --> */}

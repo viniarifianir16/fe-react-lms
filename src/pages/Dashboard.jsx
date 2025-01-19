@@ -1,31 +1,23 @@
-import { useAuthStore } from '../stores/auth';
+import CardDataStats from '../components/CardDataStats';
+import TableThree from '../components/Tables/TableThree';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import CardDataStats from '../components/CardDataStats';
 import { LuUser } from 'react-icons/lu';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 
 function Dashboard() {
-  const { user, logout } = useAuthStore();
-  const navigate = useNavigate();
   const token = localStorage.getItem('token');
-
-  const handleLogout = () => {
-    logout();
-    localStorage.removeItem('token');
-    navigate('/login');
-  };
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!token) {
       navigate('/login');
     }
   });
-
   return (
     <>
-      <h1>Welcome, {user?.name}</h1>
-      <button onClick={handleLogout}>Logout</button>
+      {/* <h1>Welcome, {user?.name}</h1> */}
+      {/* <button onClick={handleLogout}>Logout</button> */}
 
       <section className="bg-gradient-to-b from-purple-300 to-purple-600 rounded-lg shadow-lg p-6 mb-5">
         <div className="flex justify-between items-center space-x-10 lg:space-x-20">
@@ -64,6 +56,7 @@ function Dashboard() {
         </div>
       </section>
 
+      {/* CARD */}
       <div className="mb-5">
         <h2 className="text-black font-bold">MODUL KOMPETENSI</h2>
       </div>
@@ -106,6 +99,13 @@ function Dashboard() {
           {/* img */}
         </CardDataStats>
       </div>
+      {/* CARD */}
+
+      {/* TABLE */}
+      <div className="mt-5 col-span-12 xl:col-span-8">
+        <TableThree />
+      </div>
+      {/* TABLE */}
     </>
   );
 }
