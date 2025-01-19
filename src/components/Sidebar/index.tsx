@@ -18,7 +18,7 @@ interface SidebarProps {
 }
 
 const Separator = () => {
-  return <div className="h-px bg-gray-300 my-2 lg:my-5" />;
+  return <div className="h-px bg-gray-600 my-3" />;
 };
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
@@ -71,7 +71,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   return (
     <aside
       ref={sidebar}
-      className={`absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0 ${
+      className={`absolute left-0 top-0 z-9999 flex h-screen w-60 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}
     >
@@ -98,7 +98,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         <nav className="mt-5 py-4 px-4 lg:mt-1 lg:px-6">
           {/* <!-- Menu Group --> */}
           <div>
-            <ul className="mb-6 flex flex-col gap-1.5">
+            <ul className="flex flex-col gap-1.5">
               {/* <!-- Menu Item Dashboard --> */}
               <li>
                 <NavLink
@@ -181,11 +181,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
           {/* <!-- Profile Group --> */}
           <div>
-            <h3 className="mb-4 ml-4 text-sm font-semibold text-bodydark2">
+            <h3 className="mb-4 ml-4 text-sm font-semibold text-bodydark1">
               PROFILE
             </h3>
 
-            <ul className="mb-6 flex flex-col gap-1.5">
+            <ul className=" flex flex-col gap-1.5">
               {/* <!-- Menu Item Settings --> */}
               <li>
                 <NavLink
