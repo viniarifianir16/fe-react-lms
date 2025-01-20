@@ -11,17 +11,17 @@ const ProtectedRoute = ({ children }) => {
 
   useEffect(() => {
     const loginRoutesList = ['/signin', '/signup'];
-    const privateRouteList = ['/dashboard', '/calendar', '/moduls'];
+    const privateRouteList = ['/dashboard', '/moduls', '/settings'];
 
     if (user) {
-      // If user is logged in and trying to access login routes, redirect to home
+      // If user is logged in and trying to access login routes, redirect to dashboard
       if (loginRoutesList.includes(location.pathname)) {
         navigate('/dashboard');
       }
     } else {
-      // If user is not logged in and trying to access private routes, redirect to login
+      // If user is not logged in and trying to access private routes, redirect to login page
       if (privateRouteList.includes(location.pathname)) {
-        navigate('/');
+        navigate('/signin');
       }
     }
   }, [user, location.pathname, navigate]);

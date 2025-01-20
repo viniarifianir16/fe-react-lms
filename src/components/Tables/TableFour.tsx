@@ -3,18 +3,19 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { baseUrl } from '../../utils/Constants';
 import { IoIosAdd } from 'react-icons/io';
-import { FaEdit } from 'react-icons/fa';
-import { FaTrash } from 'react-icons/fa';
+import { FaEdit, FaTrash, FaEye } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import { useAuthStore } from '../../stores/Auth';
 
 interface Modul {
   id: string | number;
-  module_name: string;
-  presenters: string;
-  description: string;
-  start_date: string;
-  end_date: string;
+  title: string;
+  content: string;
+  presenter: string;
+  time_start: string;
+  time_finish: string;
+  date_start: string;
+  date_finish: string;
   status: string;
 }
 
@@ -82,9 +83,9 @@ const TableFour = ({ moduls }: { moduls: Modul[] }) => {
   const handleSort = () => {
     const sortedData = [...data].sort((a, b) => {
       if (sortOrder === 'asc') {
-        return a.module_name.localeCompare(b.module_name);
+        return a.title.localeCompare(b.title);
       } else {
-        return b.module_name.localeCompare(a.module_name);
+        return b.title.localeCompare(a.title);
       }
     });
     setData(sortedData);
@@ -145,16 +146,10 @@ const TableFour = ({ moduls }: { moduls: Modul[] }) => {
                 className="min-w-fit py-4 px-4 font-medium text-black dark:text-white"
                 onClick={handleSort}
               >
-                Modul
+                Judul
               </th>
               <th className="min-w-fit py-4 px-4 font-medium text-black dark:text-white">
                 Pemateri
-              </th>
-              <th className="py-4 px-4 font-medium text-black dark:text-white">
-                Deskripsi
-              </th>
-              <th className="py-4 px-4 font-medium text-black dark:text-white">
-                Period
               </th>
               <th className="py-4 px-4 font-medium text-black dark:text-white">
                 Status
@@ -174,23 +169,11 @@ const TableFour = ({ moduls }: { moduls: Modul[] }) => {
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                   <p className="font-medium text-black dark:text-white">
-                    {item.module_name}
+                    {item.title}
                   </p>
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                  <p className="text-black dark:text-white">
-                    {item.presenters}
-                  </p>
-                </td>
-                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                  <p className="text-black dark:text-white">
-                    {item.description}
-                  </p>
-                </td>
-                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                  <p className="text-black dark:text-white">
-                    {item.start_date} - {item.end_date}
-                  </p>
+                  <p className="text-black dark:text-white">{item.presenter}</p>
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                   <p
@@ -207,6 +190,12 @@ const TableFour = ({ moduls }: { moduls: Modul[] }) => {
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                   <div className="flex items-center space-x-3.5">
+                    <a
+                      href={`/moduls/${item.id}`}
+                      className="hover:text-primary"
+                    >
+                      <FaEye />
+                    </a>
                     <a
                       href={`/modulsform/${item.id}`}
                       className="hover:text-primary"

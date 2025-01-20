@@ -89,7 +89,7 @@ const TableThree = () => {
                   </p>
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                  <p className="inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium bg-success text-success">
+                  <p className="inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm text-center font-medium bg-success text-success">
                     {packageItem.point}
                   </p>
                 </td>

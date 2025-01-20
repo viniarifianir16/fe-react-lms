@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import { baseUrl } from '../../utils/Constants';
@@ -11,6 +11,7 @@ const SignUp: React.FC = () => {
   const passwordRef = useRef<HTMLInputElement>(null);
   const passwordConfirmRef = useRef<HTMLInputElement>(null);
   const nameRef = useRef<HTMLInputElement>(null);
+  const roleRef = useRef<HTMLSelectElement>(null);
   const navigate = useNavigate();
 
   const submitRegister = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -19,6 +20,7 @@ const SignUp: React.FC = () => {
     const password = passwordRef.current?.value;
     const password_confirmation = passwordConfirmRef.current?.value;
     const name = nameRef.current?.value;
+    const role = roleRef.current?.value;
 
     try {
       await axios.post(`${baseUrl}/api/register`, {
@@ -26,6 +28,7 @@ const SignUp: React.FC = () => {
         email,
         password,
         password_confirmation,
+        role,
       });
       Swal.fire(
         'Success!',
@@ -92,6 +95,40 @@ const SignUp: React.FC = () => {
                           </g>
                         </svg>
                       </span>
+                    </div>
+                  </div>
+
+                  <div className="mb-4">
+                    <label className="mb-2.5 block font-medium text-black dark:text-white">
+                      Role
+                    </label>
+                    <div className="relative">
+                      <select
+                        name="role"
+                        ref={roleRef}
+                        className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        required
+                      >
+                        <option
+                          value=""
+                          disabled
+                          className="text-body dark:text-bodydark"
+                        >
+                          Select Role
+                        </option>
+                        <option
+                          value="peserta"
+                          className="text-body dark:text-bodydark"
+                        >
+                          Peserta
+                        </option>
+                        <option
+                          value="pemateri"
+                          className="text-body dark:text-bodydark"
+                        >
+                          Pemateri
+                        </option>
+                      </select>
                     </div>
                   </div>
 

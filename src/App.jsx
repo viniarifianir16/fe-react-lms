@@ -12,6 +12,8 @@ import Modul from './pages/Modul/Modul';
 import SignIn from './pages/Authentication/SignIn';
 import SignUp from './pages/Authentication/SignUp';
 import ModulForm from './pages/Modul/ModulForm';
+import Settings from './pages/Settings';
+import ModulDetail from './pages/Modul/ModulDetail';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -96,6 +98,17 @@ function App() {
           }
         />
         <Route
+          path="/moduls/:id"
+          element={
+            <>
+              <ProtectedRoute>
+                <PageTitle title="Modul Detail" />
+                <ModulDetail />
+              </ProtectedRoute>
+            </>
+          }
+        />
+        <Route
           path="/modulsform/:id"
           element={
             <>
@@ -113,6 +126,19 @@ function App() {
             <>
               <PageTitle title="Calendar" />
               <Calendar />
+            </>
+          }
+        />
+
+        {/* Settings */}
+        <Route
+          path="/settings"
+          element={
+            <>
+              <ProtectedRoute>
+                <PageTitle title="Settings" />
+                <Settings />
+              </ProtectedRoute>
             </>
           }
         />

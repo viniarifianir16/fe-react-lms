@@ -13,7 +13,7 @@ const ProfileInfo = () => {
             alt="Profile"
             className="w-20 h-20 rounded-full border-4 border-white mb-4"
           />
-          <h2 className="text-lg text-black font-bold">
+          <h2 className="text-lg text-black font-bold text-center">
             Selamat Datang, {user?.name}
           </h2>
           <p className="text-sm text-bodydark2">Di LMS by Adhivasindo</p>

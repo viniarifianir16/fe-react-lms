@@ -11,12 +11,15 @@ const ModulForm = () => {
   const navigate = useNavigate();
   const { user } = useAuthStore();
   const token = user?.token;
-  const [moduleName, setModuleName] = useState('');
-  const [presenters, setPresenters] = useState('');
-  const [description, setDescription] = useState('');
-  const [startDate, setStartDate] = useState('');
+  const [title, setTitle] = useState('');
+  const [presenter, setPresenter] = useState('');
+  const [content, setContent] = useState('');
+  const [timeStart, setTimeStart] = useState('');
+  const [timeFinish, setTimeFinish] = useState('');
+  const [dateStart, setStartDate] = useState('');
   const [dateFinish, setEndDate] = useState('');
   const [status, setStatus] = useState('');
+  // const [image, setImage] = useState('');
   const [isUpdateMode, setIsUpdateMode] = useState(false);
   const [isOptionSelected, setIsOptionSelected] = useState<boolean>(false);
 
@@ -35,12 +38,15 @@ const ModulForm = () => {
         },
       });
       const moduleData = response.data;
-      setModuleName(moduleData.module_name);
-      setPresenters(moduleData.presenters);
-      setDescription(moduleData.description);
-      setStartDate(moduleData.start_date);
+      setTitle(moduleData.title);
+      setContent(moduleData.content);
+      setPresenter(moduleData.presenter);
+      setTimeStart(moduleData.time_start);
+      setTimeFinish(moduleData.time_finish);
+      setStartDate(moduleData.date_start);
       setEndDate(moduleData.date_finish);
       setStatus(moduleData.status);
+      // setImage(moduleData.image);
     } catch (error) {
       Swal.fire(
         'Error',
@@ -57,12 +63,15 @@ const ModulForm = () => {
       await axios.post(
         `${baseUrl}/api/moduls`,
         {
-          module_name: moduleName,
-          presenters,
-          description,
-          start_date: startDate,
+          title,
+          content,
+          presenter,
+          time_start: timeStart,
+          time_finish: timeFinish,
+          date_start: dateStart,
           date_finish: dateFinish,
           status,
+          // image,
         },
         {
           headers: {
@@ -89,12 +98,15 @@ const ModulForm = () => {
       await axios.put(
         `${baseUrl}/api/moduls/${id}`,
         {
-          module_name: moduleName,
-          presenters,
-          description,
-          start_date: startDate,
+          title,
+          content,
+          presenter,
+          time_start: timeStart,
+          time_finish: timeFinish,
+          date_start: dateStart,
           date_finish: dateFinish,
           status,
+          // image,
         },
         {
           headers: {
@@ -139,10 +151,10 @@ const ModulForm = () => {
                   </label>
                   <input
                     type="text"
-                    id="moduleName"
-                    value={moduleName}
-                    onChange={(e) => setModuleName(e.target.value)}
-                    placeholder="masukkan judul modul"
+                    id="title"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    placeholder="Masukkan judul modul"
                     className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                     required
                   />
@@ -155,8 +167,8 @@ const ModulForm = () => {
                   <input
                     type="text"
                     id="presenters"
-                    value={presenters}
-                    onChange={(e) => setPresenters(e.target.value)}
+                    value={presenter}
+                    onChange={(e) => setPresenter(e.target.value)}
                     placeholder="Masukkan nama pemateri"
                     className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                     required
@@ -165,17 +177,49 @@ const ModulForm = () => {
 
                 <div className="mb-4.5">
                   <label className="mb-2.5 block text-black dark:text-white">
-                    Deskripsi <span className="text-meta-1">*</span>
+                    Materi <span className="text-meta-1">*</span>
                   </label>
                   <textarea
-                    id="description"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
+                    id="content"
+                    value={content}
+                    onChange={(e) => setContent(e.target.value)}
                     rows={6}
-                    placeholder="Masukkan deskripsi modul"
+                    placeholder="Tulis materi"
                     className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                     required
                   ></textarea>
+                </div>
+
+                <div className="mb-4.5 flex flex-col gap-6 xl:flex-row">
+                  <div className="w-full xl:w-1/2">
+                    <label className="mb-2.5 block text-black dark:text-white">
+                      Jam Mulai
+                    </label>
+                    <input
+                      type="time"
+                      id="timeStart"
+                      value={timeStart}
+                      onChange={(e) => setTimeStart(e.target.value)}
+                      placeholder="Pilih jam mulai"
+                      className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      required
+                    />
+                  </div>
+
+                  <div className="w-full xl:w-1/2">
+                    <label className="mb-2.5 block text-black dark:text-white">
+                      Jam Selesai
+                    </label>
+                    <input
+                      type="time"
+                      id="timeFinish"
+                      value={timeFinish}
+                      onChange={(e) => setTimeFinish(e.target.value)}
+                      placeholder="Pilih jam selesai"
+                      className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      required
+                    />
+                  </div>
                 </div>
 
                 <div className="mb-4.5 flex flex-col gap-6 xl:flex-row">
@@ -185,8 +229,8 @@ const ModulForm = () => {
                     </label>
                     <input
                       type="date"
-                      id="startDate"
-                      value={startDate}
+                      id="dateStart"
+                      value={dateStart}
                       onChange={(e) => setStartDate(e.target.value)}
                       placeholder="Pilih tanggal mulai"
                       className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
@@ -271,6 +315,22 @@ const ModulForm = () => {
                     </span>
                   </div>
                 </div>
+
+                {/* <div className="mb-4.5" hidden>
+                  <label className="mb-2.5 block text-black dark:text-white">
+                    Upload Gambar <span className="text-meta-1">*</span>
+                  </label>
+                  <input
+                    type="file"
+                    name="image"
+                    id="image"
+                    value=""
+                    onChange={(e) => setImage(e.target.value)}
+                    placeholder="Pilih gambar"
+                    className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                    required
+                  />
+                </div> */}
 
                 <button className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90">
                   {isUpdateMode ? 'Update Modul' : 'Create Modul'}

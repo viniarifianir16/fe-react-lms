@@ -3,7 +3,7 @@ function Welcome() {
     <div>
       <h1>Welcome!</h1>
       <a href="/signin">Login</a>
-      <a href="/register">Register</a>
+      <a href="/signup">Register</a>
     </div>
   );
 }

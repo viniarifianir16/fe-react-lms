@@ -19,7 +19,7 @@ function Dashboard() {
       <section className="bg-gradient-to-b from-purple-400 to-purple-800 rounded-lg shadow-lg p-6 mb-5">
         <div className="flex justify-between items-center space-x-10">
           <div>
-            <p className="text-base text-yellow-500 font-bold mb-4">
+            <p className="text-base text-yellow-500 font-bold mb-4 [text-shadow:_0_2px_4px_rgb(156_163_175_/_0.8)] ">
               PEMROGRAMAN
             </p>
             <h1 className="text-4xl font-semibold text-white">
@@ -46,7 +46,7 @@ function Dashboard() {
             </div>
           </div>
           <div className="self-end">
-            <button className="bg-white text-black min-w-40 py-2 px-6 rounded hover:bg-gray-200">
+            <button className="bg-white text-black py-2 px-6 rounded hover:bg-gray-200 md:min-w-40">
               Mulai Learning
             </button>
           </div>

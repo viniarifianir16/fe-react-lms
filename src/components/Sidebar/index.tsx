@@ -143,10 +143,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item Peserta --> */}
               <li>
                 <NavLink
-                  to="/profile"
+                  to="/"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('profile') &&
-                    'bg-white text-bodydark dark:bg-meta-4'
+                    pathname.includes('/peserta') &&
+                    'bg-white text-bodydark2 dark:bg-meta-4'
                   }`}
                 >
                   <LuUsers />
@@ -158,9 +158,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item Group Chat --> */}
               <li>
                 <NavLink
-                  to="/tables"
+                  to="/"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('tables') &&
+                    pathname.includes('/groupchat') &&
                     'bg-white text-bodydark2 dark:bg-meta-4'
                   }`}
                 >
@@ -173,9 +173,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item Pemateri --> */}
               <li>
                 <NavLink
-                  to="/#"
+                  to="/"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('#') &&
+                    pathname.includes('/pemateri') &&
                     'bg-white text-bodydark2 dark:bg-meta-4'
                   }`}
                 >
@@ -237,9 +237,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <NavLink
                   onClick={handleLogout}
-                  to="#"
+                  to="/"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('#') &&
+                    pathname.includes('/signin') &&
                     'bg-white text-bodydark2 dark:bg-meta-4'
                   }`}
                 >
