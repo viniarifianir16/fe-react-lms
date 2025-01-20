@@ -88,7 +88,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       {/* <!-- SIDEBAR HEADER --> */}
       <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:pt-5.5 pb-2 bg-white">
         <NavLink to="/" className="flex-grow text-center">
-          <img src={Logo} alt="Logo" className="mx-auto max-w-20" />
+          <img src={Logo} alt="Logo" className="mx-auto max-w-16" />
         </NavLink>
 
         <button
@@ -128,7 +128,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item Modul --> */}
               <li>
                 <NavLink
-                  to="/modul"
+                  to="/moduls"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes('modul') &&
                     'bg-white text-bodydark2 dark:bg-meta-4'

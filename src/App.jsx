@@ -1,7 +1,5 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import Register from './pages/auth/Register';
-import Login from './pages/auth/Login';
 import Dashboard from './pages/Dashboard';
 import ProtectedRoute from './pages/ProtectedRoute';
 import Welcome from './pages/Welcome';
@@ -11,6 +9,9 @@ import Loader from './common/Loader';
 import PageTitle from './components/PageTitle';
 import Calendar from './pages/Calendar';
 import Modul from './pages/Modul/Modul';
+import SignIn from './pages/Authentication/SignIn';
+import SignUp from './pages/Authentication/SignUp';
+import ModulForm from './pages/Modul/ModulForm';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -40,23 +41,25 @@ function App() {
           }
         />
         <Route
-          path="/login"
+          path="/signin"
           element={
             <>
-              <PageTitle title="Login" />
-              <Login />
+              <PageTitle title="Sign In" />
+              <SignIn />
             </>
           }
         />
         <Route
-          path="/register"
+          path="/signup"
           element={
             <>
-              <PageTitle title="Register" />
-              <Register />
+              <PageTitle title="Sign Up" />
+              <SignUp />
             </>
           }
         />
+
+        {/* Dashboard */}
         <Route
           path="/dashboard"
           element={
@@ -68,15 +71,42 @@ function App() {
             </>
           }
         />
+
+        {/* Modul */}
         <Route
-          path="/modul"
+          path="/moduls"
           element={
             <>
-              <PageTitle title="Modul" />
-              <Modul moduls={[]} />
+              <ProtectedRoute>
+                <PageTitle title="Modul" />
+                <Modul />
+              </ProtectedRoute>
             </>
           }
         />
+        <Route
+          path="/modulsform"
+          element={
+            <>
+              <ProtectedRoute>
+                <PageTitle title="Modul Form" />
+                <ModulForm />
+              </ProtectedRoute>
+            </>
+          }
+        />
+        <Route
+          path="/modulsform/:id"
+          element={
+            <>
+              <ProtectedRoute>
+                <PageTitle title="Modul Form" />
+                <ModulForm />
+              </ProtectedRoute>
+            </>
+          }
+        />
+
         <Route
           path="/calendar"
           element={

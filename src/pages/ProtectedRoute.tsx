@@ -10,8 +10,8 @@ const ProtectedRoute = ({ children }) => {
   const { user } = useAuthStore();
 
   useEffect(() => {
-    const loginRoutesList = ['/login', '/register'];
-    const privateRouteList = ['/dashboard'];
+    const loginRoutesList = ['/signin', '/signup'];
+    const privateRouteList = ['/dashboard', '/calendar', '/moduls'];
 
     if (user) {
       // If user is logged in and trying to access login routes, redirect to home
