@@ -88,7 +88,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       {/* <!-- SIDEBAR HEADER --> */}
       <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:pt-5.5 pb-2 bg-white">
         <NavLink to="/" className="flex-grow text-center">
-          <img src={Logo} alt="Logo" className="mx-auto max-w-16" />
+          <img src={Logo} alt="Logo" className="mx-auto max-h-10.5" />
         </NavLink>
 
         <button
